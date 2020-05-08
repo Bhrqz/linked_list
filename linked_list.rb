@@ -1,5 +1,3 @@
-require "pry"
-
 class LinkedList
 
   def initialize
@@ -7,7 +5,6 @@ class LinkedList
   end
 
   def append(value)
-    
     if @head
      find_final.link = Node.new(value)
     
@@ -15,7 +12,6 @@ class LinkedList
       @head = Node.new(value)
   
     end
-
   end
 
   def preppend(value)
@@ -32,14 +28,11 @@ class LinkedList
 
 
   def tail
-  
     puts "This is the tail of the list: #{find_final.value}"
-  
   end
 
   def find_final
     node = @head
-
     return node if  !node.link
     return node if !node.link while (node = node.link)
   end
@@ -53,7 +46,6 @@ class LinkedList
         size =size +1
         node = node.link
       end
-    
     end
       puts "The size of the list is #{size}" 
       @@size = size
@@ -94,13 +86,25 @@ class LinkedList
   end
 
   def contains?(value)
-
     node = @head
       while node
         puts true if node.value == value
         node=node.link
       end
       puts false
+  end
+
+  def find(value)
+    
+    index = 0
+    node = @head
+      while node
+        puts "The value #{value} is at index #{index}" if node.value == value
+        node=node.link
+        index +=1
+      end
+      puts "In this list there is not value #{value}" if index = @@size
+     
   end
 
   def to_s
@@ -141,9 +145,7 @@ list.preppend(15)
 
 list.size
 list.to_s
-
 list.head
-
 list.tail
 
 list.at(2)
@@ -156,3 +158,7 @@ list.to_s
 
 list.contains?(50)
 list.contains?(10)
+
+list.find(15)
+list.find(35)
+list.find(100)
