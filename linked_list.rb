@@ -97,12 +97,10 @@ class LinkedList
 
     node = @head
       while node
-        puts "true" if node.value == value
+        puts true if node.value == value
         node=node.link
       end
-      
-      puts "false"
-
+      puts false
   end
 
   def to_s
@@ -156,5 +154,5 @@ list.at(4)
 list.pop
 list.to_s
 
-list.contains?(60)
-list.contains?(100)
+list.contains?(50)
+list.contains?(10)
